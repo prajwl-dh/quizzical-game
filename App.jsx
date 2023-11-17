@@ -28,7 +28,11 @@ export default function App(){
         return txt.value;
     }
 
-    const questions = trivia.map((x) => <Quiz key={uuidv4()} question={decodeHtml(x.question)} options={x.incorrect_answers} correctAnswer={x.correct_answer}/>)
+    function onQuizOptionsClick(id){
+        console.log("Clicked " + id)
+    }
+
+    const questions = trivia.map((x) => <Quiz key={uuidv4()} question={decodeHtml(x.question)} options={x.incorrect_answers} correctAnswer={x.correct_answer} click={onQuizOptionsClick}/>)
 
     return(
         <div className="app">
