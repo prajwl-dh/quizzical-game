@@ -3,6 +3,19 @@ import yellowIcon from "../images/yellowIcon.png"
 import blueIcon from "../images/blueIcon.png"
 
 export default function Quiz(props){
+    // Decode HTML entities function
+    function decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+    }
+
+    const tempArray = props.options
+    tempArray.push(props.correctAnswer)
+    tempArray.sort(() => Math.random() - 0.5)
+
+    const finalOptionsArray = tempArray.map((x) => <button className="answer-buttons">{decodeHtml(x)}</button>)
+
     return(
         <div className="quiz-container">
             <img src={yellowIcon} className="yellowIcon" />
@@ -10,10 +23,7 @@ export default function Quiz(props){
                 <li>
                     <p className="questions">{props.question}</p>
                     <div className="all-buttons">
-                        <button className="answer-buttons">adios</button>
-                        <button className="answer-buttons">hola</button>
-                        <button className="answer-buttons">au revior</button>
-                        <button className="answer-buttons">salir</button>
+                        {finalOptionsArray}
                     </div>
                     <hr className="line" />
                 </li>
