@@ -3,6 +3,13 @@ body {
     position: relative; /* Added line */
 }
 
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Home Page Start*/
 .home-container {
     display: flex;
@@ -90,18 +97,26 @@ body {
     align-self: center;
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
     margin-left: 20vw;
     margin-right: 20%;
     text-align: left;
+    width: 500px;
 }
 
 .quiz-list {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.quiz-list li {
     list-style: none;
     margin: 0px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    
 }
 
 .questions {
@@ -111,13 +126,16 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    align-items: center;
 }
 
 .all-buttons {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 600px;
 }
 
 .answer-buttons {
@@ -133,6 +151,7 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    align-items: center;
 }
 
 .line {
@@ -153,7 +172,6 @@ body {
     line-height: normal;
     border: none;
     cursor: pointer;
-    margin-left:45vw;
     margin-bottom: 5px;
 }
 
