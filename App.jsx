@@ -2,12 +2,15 @@ import React from "react"
 import { v4 as uuidv4 } from 'uuid';
 import Home from "./components/Home.jsx"
 import Quiz from "./components/Quiz.jsx"
+import {triviaSource} from "./data.js";
 
 
 export default function App(){
     const [startQuiz, setStartQuiz] = React.useState(false)
-    const [trivia, setTrivia] = React.useState([])
+    const [trivia, setTrivia] = React.useState(triviaSource)
+    const [isClicked, setIsClicked] = React.useState({})
 
+    /*
     React.useEffect(() => {
         async function pullTrivia(){
             const res = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
@@ -16,6 +19,7 @@ export default function App(){
         }
         pullTrivia()
     }, [])
+    */
 
     function onStartQuizButton(){
         setStartQuiz(true)
@@ -28,11 +32,15 @@ export default function App(){
         return txt.value;
     }
 
-    function onQuizOptionsClick(id){
-        console.log("Clicked " + id)
+    function onQuizOptionsClick(id, quizNumber){
+        console.log("Clicked " + " quiz number " + quizNumber + " with " + id)
     }
 
-    const questions = trivia.map((x) => <Quiz key={uuidv4()} question={decodeHtml(x.question)} options={x.incorrect_answers} correctAnswer={x.correct_answer} click={onQuizOptionsClick}/>)
+    let quizIndex = 0
+    const questions = trivia.map((x) => {
+        quizIndex = quizIndex + 1
+        return <Quiz key={quizIndex} quizNumber={quizIndex} question={decodeHtml(x.question)} options={x.incorrect_answers} correctAnswer={x.correct_answer} click={onQuizOptionsClick}/>
+    })
 
     return(
         <div className="app">

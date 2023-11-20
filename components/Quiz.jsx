@@ -14,7 +14,7 @@ export default function Quiz(props){
     tempArray.push(props.correctAnswer)
     tempArray.sort(() => Math.random() - 0.5)
 
-    const finalOptionsArray = tempArray.map((x) => <button className="answer-buttons" onClick={() => props.click(decodeHtml(x))} key={decodeHtml(x)}>{decodeHtml(x)}</button>)
+    const finalOptionsArray = tempArray.map((x) => <button className="answer-buttons" onClick={() => props.click(decodeHtml(x), props.quizNumber)} key={decodeHtml(x)}>{decodeHtml(x)}</button>)
 
     return(
         <div className="quiz-container">
