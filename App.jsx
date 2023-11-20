@@ -8,7 +8,6 @@ import {triviaSource} from "./data.js";
 export default function App(){
     const [startQuiz, setStartQuiz] = React.useState(false)
     const [trivia, setTrivia] = React.useState(triviaSource)
-    const [isClicked, setIsClicked] = React.useState({})
 
     /*
     React.useEffect(() => {
