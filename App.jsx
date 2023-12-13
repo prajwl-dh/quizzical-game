@@ -7,9 +7,8 @@ import {triviaSource} from "./data.js";
 
 export default function App(){
     const [startQuiz, setStartQuiz] = React.useState(false)
-    const [trivia, setTrivia] = React.useState(triviaSource)
+    const [trivia, setTrivia] = React.useState('')
 
-    /*
     React.useEffect(() => {
         async function pullTrivia(){
             const res = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
@@ -18,7 +17,6 @@ export default function App(){
         }
         pullTrivia()
     }, [])
-    */
 
     function onStartQuizButton(){
         setStartQuiz(true)
